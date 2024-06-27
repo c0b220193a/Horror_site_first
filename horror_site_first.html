@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Introduce Horror Game</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url("horror2.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #cccccc;
+    margin-top: 50px;
+    background-size: cover;
+    position: relative;
+}
+img {
+	max-width:100%;
+	height: auto;
+	margin: 0;
+	padding: 0px;
+	border: 0px solid #000;
+	display: block;
+	width: 100%;
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #444444;
+	padding: 10px;
+	z-index: 9999;
+}
+nav {
+	position: relative;
+}
+
+.toggle-button {
+	display: block;
+	cursor: pointer;
+	padding: 8px;
+	position: relative;
+	float: right;
+}
+
+.toggle-button span {
+	display: block;
+	width: 25px;
+	height: 3px;
+	background-color: #ffffff;
+	margin-bottom: 5px;
+}
+
+.menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: #444444;
+	list-style-type: none;
+	padding: 15px 10px;
+	text-align: right;
+	margin-top: 10px;
+	transform: translateY(40px);
+}
+
+.menu li {
+	margin-bottom: 15px;
+}
+
+.menu li a {
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 15px 20px;
+}
+.kiri-image {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 999;
+	transform: translate(-50%, -50%);
+}
+.kiri-image img {
+	animation: scroll-marquee 20s linear infinite;
+}
+.noize {
+	top: 0%;
+	left:70%;
+	tramsform: translate(-50%, -50%);
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.noize img.compressed-image {
+	width: 80%;
+	transform: scaleX(0.3);
+}
+.image-container {
+	position: relative;
+	display: inline-block;
+	text-align: left;
+}
+.image-container .image-text {
+	position: absolute;
+	top: 6%;
+	left: 4%;
+	color: #ffffff;
+	font-size: 60px;
+	font-family: "yanagi", cursive;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	z-index: 999;
+}
+.image-text span {
+	animation: shake-animation 0.05s ease-in-out infinite;
+	display: inline-block;
+}
+.video-container {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.7;
+	z-index: 0;
+	opacity: 0.7;
+	pointer-events:none;
+	overflow: hidden;
+}
+.video-container video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+h1{
+	font-size:25px;
+	position: relative;
+	color: #000000;
+}
+h1::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 170%;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	z-index: -1;
+}
+h2::after {
+	content:"";
+	display: block;
+	width: 100%;
+	height: 10px;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+	position: absolute;
+	bottom; -20px;
+	left: 0;
+}
+.image-sett img {
+	position: relative;
+	display: inline-block;
+	text-aligh: left;
+	max-width: 60%;
+}
+.image-sett {
+	font-size: 17px;
+}
+.noize img.blinking-image {
+	animation: blink 5s infinite, shake 0.001s infinite;
+}
+h5 {
+	font-size: 40px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.noize h5,
+.noize img {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family: "yanagi";
+	src: url("fonts/MCyanagi.ttf") format("truetype");
+}
+@keyframes scroll-marquee {
+	0% { transform: translateX(200%); }
+	100% { transform: translateX(-200%); }
+}
+@keyframes shake-animation {
+	0% { transform: translateX(2.7px); }
+	33% { transform: translateY(-2.7px); }
+	66% { transform: translateY(2.7px); }
+	100% { transform: translateX(2.7px); }
+}
+@keyframes shake {
+	0% { transform: translateX(140px); }
+	33% { transform: translateX(-1020px); }
+	66% { transform: translateX(420px); }
+     	100% { transform: translateX(-100px); }
+}
+@keyframes blink {
+	0% { opacity: 0; }
+	30% { opacity: 1; }
+	60% { opacity: 0; }
+	63% { opacity: 1; }
+	64% { opacity: 0; }
+	100% { opacity: 0; }
+}
+</style>
+<body>
+<header>
+<nav>
+<div class="toggle-button">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<ul class="menu">
+<li><a href="http://menu">MENU1</a></li>
+<li><a href="http://menu2">MENU2</a></li>
+<li><a href="http://menu3">MENU3</a></li>
+<li><a href="http://menu4">MENU4</a></li>
+</ul>
+</nav>
+Introduce Horror Game
+</header>
+<div class="image-container">
+<img src="horror1.jpg" alt="horror1">
+<div class="image-text">
+<span>ほ</span>
+<span>ら</span>
+<span>げ</span>
+<span>ー</span>
+<span>お</span>
+<span>す</span>
+<span>す</span>
+<span>め</span>
+</div>
+<h1>夏と言えばホラーゲームの季節です。涼しい風が吹く夜に、恐怖の世界へと足を踏み入れるのは一層心地良く感じられます。そこで、今回は数本のおすすめホラーゲームをご紹介します。これらのゲームは緊張感と恐怖を巧みに組み合わせ、プレイヤーを一瞬たりとも退屈させません。</h1>
+<h2></h2>
+</br></br></br></br>
+<h5>ホラーゲーム　タイトル</h5>
+<div class="image-sett">
+<img src="horror3.jpg" alt="horror3">
+<p>ホラーゲーム　説明</p>
+</br></br>
+</div>
+<div class="kiri-image">
+<img src="kiri.png" alt="Kiri">
+</div>
+<div class="noize">
+<img src="noize.png" alt="Noize" class="blinking-image">
+</div>
+<script>
+window.addEventListener("scroll", function() {
+	var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	var opacity = scrollTop / (document.documentElement.scrollHeight - window.innerHeight + window.innerHeight);
+	document.body.style.backgroundColor = "rgba(0, 0, 0, " + opacity + ")";
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+var toggleButton = document.querySelector('.toggle-button');
+var menu = document.querySelector('.menu');
+
+toggleButton.addEventListener('click', function() {
+menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+});
+});
+</script>
+
+</body>
+</html>
